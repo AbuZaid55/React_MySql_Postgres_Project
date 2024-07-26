@@ -1,6 +1,6 @@
 import {BrowserRouter,Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
-import Actions from './pages/Actions'
+import Create from './pages/Create'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/actions' element={<Actions/>}/>
+        <Route path='/create' element={<Create/>}/>
       </Routes>
       <ToastContainer/>
     </BrowserRouter>

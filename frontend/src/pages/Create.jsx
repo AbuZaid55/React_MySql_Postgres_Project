@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import {toast} from 'react-toastify'
 
-const Actions = () => {
+const CreateUser = () => {
   const [data,setData]=useState({name:"",email:""})
   const createData = async () => {
     try {
@@ -26,4 +26,4 @@ const Actions = () => {
   )
 }
 
-export default Actions
+export default CreateUser;
