@@ -3,10 +3,11 @@ import axios from 'axios'
 import {toast} from 'react-toastify'
 
 const Home = () => {
+  const backend_url = import.meta.env.VITE_BACKEND_URL
   const [data,setData]=useState([])
   async function fetchData(){
     try {
-      const res = await axios.get('http://localhost:8080/read')
+      const res = await axios.get(`${backend_url}/read`)
       if(res?.data?.success){
         setData(res.data.data)
       }
@@ -19,7 +20,7 @@ const Home = () => {
   },[])
   const updateUser = async(id,name)=>{
     try {
-      const res = await axios.post('http://localhost:8080/update',{id,name})
+      const res = await axios.post(`${backend_url}/update`,{id,name})
       if(res?.data?.success){
         toast.success(res.data.message)
         fetchData()
@@ -30,7 +31,7 @@ const Home = () => {
   }
   const deleteUser = async(id)=>{
     try {
-      const res = await axios.post('http://localhost:8080/delete',{id})
+      const res = await axios.post(`${backend_url}/delete`,{id})
       if(res?.data?.success){
         toast.success(res.data.message)
         fetchData()

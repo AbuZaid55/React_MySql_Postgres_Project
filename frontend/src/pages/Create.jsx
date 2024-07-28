@@ -5,8 +5,9 @@ const CreateUser = () => {
   const [data,setData]=useState({name:"",email:""})
   const createData = async () => {
     try {
-      const res = await fetch('http://localhost:8080/create', { method: "POST", headers:{'Content-Type':'application/json'} ,body:JSON.stringify(data)});
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create`, { method: "POST", headers:{'Content-Type':'application/json'} ,body:JSON.stringify(data)});
       const json = await res.json()
+      console.log(json)
       if(json.success){
         toast.success(json.message)
       }
@@ -14,6 +15,7 @@ const CreateUser = () => {
         toast.error(json.message)
       }
     } catch (error) {
+      console.log(error)
       toast.error(error.message)
     }
   };
